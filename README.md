@@ -70,16 +70,23 @@ Examples
 
 ### Saving text using require
 ```js
-var FileSaver = require('file-saver');
+var saveAs = require('file-saver');
 var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-FileSaver.saveAs(blob, "hello world.txt");
+saveAs(blob, "hello world.txt");
+```
+
+### Saving text using ES6/ESNext
+```js
+import saveAs from "file-saver"
+var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+saveAs(blob, "hello-world.txt");
 ```
 
 ### Saving text
 
 ```js
 var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-FileSaver.saveAs(blob, "hello world.txt");
+saveAs(blob, "hello world.txt");
 ```
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
@@ -107,7 +114,7 @@ But if you still want to change the name, then you can change it in the 2nd argu
 
 ```js
 var file = new File(["Hello, world!"], "hello world.txt", {type: "text/plain;charset=utf-8"});
-FileSaver.saveAs(file);
+saveAs(file);
 ```
 
 
